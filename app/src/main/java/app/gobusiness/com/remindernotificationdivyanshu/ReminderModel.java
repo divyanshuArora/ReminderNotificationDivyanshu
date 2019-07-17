@@ -3,12 +3,13 @@ package app.gobusiness.com.remindernotificationdivyanshu;
 public class ReminderModel  {
 
 
-    public ReminderModel( String title, String description, String time, String date) {
-
+    public ReminderModel( String title, String description, String time, String date, String reminder_id) {
         this.title = title;
         this.description = description;
         this.time = time;
         this.date = date;
+        this.reminder_id = reminder_id;
+
     }
 
 
@@ -57,7 +58,32 @@ public class ReminderModel  {
         this.date = date;
     }
 
-    String id, title, description, time, date;
+    String id;
+    String title;
+    String description;
+    String time;
+    String date;
+    String reminder_id;
+
+    public String getUniqueReminderId() {
+        return uniqueReminderId;
+    }
+
+    public void setUniqueReminderId(String uniqueReminderId) {
+        this.uniqueReminderId = uniqueReminderId;
+    }
+
+    String uniqueReminderId;
+
+    public String getReminder_id() {
+        return reminder_id;
+    }
+
+    public void setReminder_id(String reminder_id) {
+        this.reminder_id = reminder_id;
+    }
+
+
 
 
 }

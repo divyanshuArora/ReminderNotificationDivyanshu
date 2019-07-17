@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +21,11 @@ private static final String TITLE = "title";
 private static final String DESCRIPTION = "description";
 private static final String TIME = "time";
 private static final String DATE ="date";
+private static final String REMINDER_ID = "reminder_id" ;
 
 
-public  Database_Helper database_helper;
-public  SQLiteDatabase sqLiteDatabase;
-
-
-        public Database_Helper(Context context) {
+public Database_Helper(Context context)
+    {
         super(context,DB_NAME,null,1);
     }
 
@@ -42,22 +39,18 @@ public  SQLiteDatabase sqLiteDatabase;
                 + TITLE + " TEXT,"
                 + DESCRIPTION + " TEXT,"
                 + TIME + " TEXT,"
-                + DATE + " TEXT"
+                + DATE + " TEXT,"
+                + REMINDER_ID + " TEXT"
+
                 + ")";
 
-                sqLiteDatabase.execSQL(CREATE_TABLE_REMINDER);
-
-
+        sqLiteDatabase.execSQL(CREATE_TABLE_REMINDER);
         Log.d("Create Table:", " "+ CREATE_TABLE_REMINDER);
-
-
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
-    }
+}
 
     public boolean addReminder(ReminderModel reminderModel)
     {
@@ -68,10 +61,11 @@ public  SQLiteDatabase sqLiteDatabase;
         contentValues.put("description",reminderModel.getDescription());
         contentValues.put("time",reminderModel.getTime());
         contentValues.put("date",reminderModel.getDate());
+        contentValues.put("reminder_id",reminderModel.getReminder_id());
+
 
         sqLiteDatabase.insert(TABLE_NAME, null,contentValues);
         sqLiteDatabase.close();
-
         return true;
     }
 
@@ -79,7 +73,7 @@ public  SQLiteDatabase sqLiteDatabase;
 
 
     public List<ReminderModel> getAllReminder() {
-        String[] column = {ID, TITLE, DESCRIPTION, TIME, DATE};
+        String[] column = {ID, TITLE, DESCRIPTION, TIME, DATE,REMINDER_ID};
 
         String sortOrder = DATE;
 
@@ -94,11 +88,13 @@ public  SQLiteDatabase sqLiteDatabase;
 
                 ReminderModel reminderModel = new ReminderModel();
 
-                reminderModel.setId(cursor.getString(cursor.getColumnIndex(ID)));
                 reminderModel.setDate(cursor.getString(cursor.getColumnIndex(DATE)));
                 reminderModel.setDescription(cursor.getString(cursor.getColumnIndex(DESCRIPTION)));
                 reminderModel.setTime(cursor.getString(cursor.getColumnIndex(TIME)));
                 reminderModel.setTitle(cursor.getString(cursor.getColumnIndex(TITLE)));
+                reminderModel.setReminder_id(cursor.getString(cursor.getColumnIndex(REMINDER_ID)));
+                reminderModel.setId(cursor.getString(cursor.getColumnIndex(ID)));
+
 
                 reminderModels.add(reminderModel);
             }

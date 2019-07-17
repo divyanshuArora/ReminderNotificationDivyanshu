@@ -6,6 +6,9 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -25,6 +28,8 @@ public class MyAlarm extends BroadcastReceiver {
 
         Toast.makeText(context,"Alerm fired!!!",Toast.LENGTH_SHORT).show();
 
+        Bitmap icon = BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_small_notification);
+
         title = intent.getStringExtra("title");
         date = intent.getStringExtra("date");
         time = intent.getStringExtra("time");
@@ -41,7 +46,8 @@ public class MyAlarm extends BroadcastReceiver {
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,channelId)
-                .setSmallIcon(R.drawable.stalwart)
+                .setSmallIcon(R.drawable.ic_small_notification)
+                .setLargeIcon(icon)
                 .setContentTitle(title)
                 .setContentText(desc)
                 .setAutoCancel(false)
