@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "498866893579",
+    "firebase_url": "https://remindernotificationdivyanshu.firebaseio.com",
+    "project_id": "remindernotificationdivyanshu",
+    "storage_bucket": "remindernotificationdivyanshu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498866893579:android:34629c0f554ba12c",
+        "android_client_info": {
+          "package_name": "app.gobusiness.com.remindernotificationdivyanshu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498866893579-c07ha70mv76udq4kgu6jteuf54n5erad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.gobusiness.com.remindernotificationdivyanshu",
+            "certificate_hash": "21e8a070d9784a30aa5ba01924bbbab0a89624d4"
+          }
+        },
+        {
+          "client_id": "498866893579-uko2r4q1eeabj1o9dtkapldv7u8p9sm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgs0lqhd76V5dHUCAVrTuPnbzp-XXJ1xA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498866893579-uko2r4q1eeabj1o9dtkapldv7u8p9sm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
